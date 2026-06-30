@@ -1,10 +1,10 @@
-# CommtelNetworks Portal
+# Nexus Portal
 
 A full-stack authentication and user profile system built with **Rust (Axum)**, **React**, **Keycloak (OpenID Connect)**, and **PostgreSQL**. Built during my internship as a mentor-assigned project to design a production-style identity and profile management flow from scratch.
 
 ## Overview
 
-CommtelNetworks Portal separates identity management from application-specific data: Keycloak owns authentication and core identity (login, registration, tokens), while PostgreSQL stores custom profile data tied to each user. The backend bridges the two, exposing a clean API the React frontend consumes.
+Nexus Portal separates identity management from application-specific data: Keycloak owns authentication and core identity (login, registration, tokens), while PostgreSQL stores custom profile data tied to each user. The backend bridges the two, exposing a clean API the React frontend consumes.
 
 ## Architecture
 
@@ -18,6 +18,12 @@ React (Vite) Frontend  →  Rust/Axum Backend  →  Keycloak (OIDC)
 - **Backend**: Rust with the Axum framework, using SQLx for type-safe PostgreSQL queries. Handles registration (via the Keycloak Admin API), login/logout, and a hybrid profile system that merges identity data from Keycloak with custom fields stored in Postgres.
 - **Auth**: Keycloak running in Docker, configured as the OpenID Connect provider. The backend validates JWTs issued by Keycloak on every protected request.
 - **Database**: PostgreSQL, storing application-specific user profile data not native to Keycloak's user model.
+
+## Screenshots
+
+| Login | Profile | Live Session / Token Status |
+|---|---|---|
+| ![Login Screen](./screenshots/login.png) | ![Profile Page](./screenshots/profile.png) | ![Session Dashboard](./screenshots/session.png) |
 
 ## Key Features
 
@@ -45,7 +51,7 @@ docker compose up -d
 Configure a realm and client in the Keycloak admin console (`http://localhost:8180`), or import an existing realm export if provided.
 
 ### 2. Configure environment variables
-Create a `.env` file inside `CommtelNetworks-backend/`:
+Create a `.env` file inside `nexus-backend/`:
 ```dotenv
 KEYCLOAK_URL=http://localhost:8180
 KEYCLOAK_REALM=your-realm-name

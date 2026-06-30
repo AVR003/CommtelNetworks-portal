@@ -1,10 +1,10 @@
-# Nexus Portal
+# CommtelNetworks Portal
 
 A full-stack authentication and user profile system built with **Rust (Axum)**, **React**, **Keycloak (OpenID Connect)**, and **PostgreSQL**. Built during my internship as a mentor-assigned project to design a production-style identity and profile management flow from scratch.
 
 ## Overview
 
-Nexus Portal separates identity management from application-specific data: Keycloak owns authentication and core identity (login, registration, tokens), while PostgreSQL stores custom profile data tied to each user. The backend bridges the two, exposing a clean API the React frontend consumes.
+CommtelNetworks Portal separates identity management from application-specific data: Keycloak owns authentication and core identity (login, registration, tokens), while PostgreSQL stores custom profile data tied to each user. The backend bridges the two, exposing a clean API the React frontend consumes.
 
 ## Architecture
 
